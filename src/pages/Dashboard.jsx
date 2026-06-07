@@ -994,7 +994,7 @@ const Dashboard = () => {
               </div>
 
               {/* Action Cards */}
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1.5rem', marginBottom: '2rem' }}>
+              <div className="dual-card-grid">
                 {/* Check In */}
                 <div className="modern-glass-card" style={{ padding: '2rem', display: 'flex', flexDirection: 'column', alignItems: 'center', background: '#ffffff', borderColor: '#bbf7d0', position: 'relative', overflow: 'hidden' }}>
                   <div style={{ position: 'absolute', top: '-20%', left: '50%', transform: 'translateX(-50%)', width: '200px', height: '200px', background: 'radial-gradient(circle, rgba(34,197,94,0.08) 0%, transparent 70%)', borderRadius: '50%', pointerEvents: 'none' }}></div>
@@ -1092,8 +1092,8 @@ const Dashboard = () => {
               </div>
 
               {/* Balance Cards */}
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1.5rem', marginBottom: '2rem' }}>
-                
+              <div className="dual-card-grid">
+
                 {/* Annual Leave */}
                 <div className="modern-glass-card" style={{ padding: '2rem', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', background: 'linear-gradient(135deg, #ffffff 0%, #fffbeb 100%)', borderColor: '#fde68a', overflow: 'hidden', position: 'relative' }}>
                   <div style={{ position: 'absolute', top: '-20%', left: '-10%', width: '150px', height: '150px', background: 'radial-gradient(circle, rgba(245,158,11,0.08) 0%, transparent 70%)', borderRadius: '50%', pointerEvents: 'none' }}></div>
@@ -1192,7 +1192,7 @@ const Dashboard = () => {
               </div>
 
               {/* Balance Cards */}
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.5rem', marginBottom: '2rem' }}>
+              <div className="triple-card-grid">
 
                 {/* Remaining Hours */}
                 <div className="modern-glass-card" style={{ padding: '1.75rem', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', background: 'linear-gradient(135deg, #ffffff 0%, #eff6ff 100%)', borderColor: '#bfdbfe', overflow: 'hidden', position: 'relative' }}>
