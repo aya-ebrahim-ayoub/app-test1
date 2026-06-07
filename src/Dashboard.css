@@ -2178,4 +2178,23 @@
   .portal-nav-link { white-space: nowrap; padding: 0.4rem 0.8rem; font-size: 0.9rem; }
 
   .portal-main { padding: 1.25rem 0; }
+
+  /* Prevent horizontal scrolling / page drifting left-right */
+  .portal-layout { overflow-x: hidden; width: 100%; }
+  .portal-main .container { padding: 0 1rem; }
+
+  /* Welcome banner: stack and full-width search */
+  .portal-welcome-banner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+    text-align: right;
+  }
+  .welcome-search { width: 100%; }
+  .welcome-content h2 {
+    font-size: 1.3rem;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .welcome-content p { font-size: 0.95rem; }
 }

@@ -45,12 +45,22 @@
   box-sizing: border-box;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 body {
   font-family: 'Tajawal', 'Cairo', sans-serif;
   background-color: var(--dark);
   color: var(--light);
   line-height: 1.6;
   direction: rtl;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+#root {
+  width: 100%;
   overflow-x: hidden;
 }
 
