@@ -167,6 +167,25 @@ function App() {
             <Link to="/login" className="btn btn-outline">تسجيل الدخول</Link>
             <button className="btn btn-primary">ابدأ تجربتك المجانية</button>
           </div>
+
+          <button
+            className="menu-toggle"
+            aria-label="القائمة"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
+        </div>
+
+        {/* Mobile Menu */}
+        <div className={`mobile-menu ${mobileMenuOpen ? 'open' : ''}`}>
+          <a href="#home" className="nav-link" onClick={() => setMobileMenuOpen(false)}>الرئيسية</a>
+          <a href="#features" className="nav-link" onClick={() => setMobileMenuOpen(false)}>المميزات</a>
+          <a href="#clients" className="nav-link" onClick={() => setMobileMenuOpen(false)}>عملاؤنا</a>
+          <a href="#pricing" className="nav-link" onClick={() => setMobileMenuOpen(false)}>الأسعار</a>
+          <a href="#contact" className="nav-link" onClick={() => setMobileMenuOpen(false)}>اتصل بنا</a>
+          <Link to="/login" className="btn btn-outline" onClick={() => setMobileMenuOpen(false)}>تسجيل الدخول</Link>
+          <button className="btn btn-primary" onClick={() => setMobileMenuOpen(false)}>ابدأ تجربتك المجانية</button>
         </div>
       </nav>
 
