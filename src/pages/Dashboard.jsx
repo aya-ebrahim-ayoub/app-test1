@@ -41,7 +41,7 @@ import '../Dashboard.css';
 
 const Dashboard = () => {
   const location = useLocation();
-  const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   const [activeTab, setActiveTab] = useState('home');
   const [showNotifications, setShowNotifications] = useState(false);
   const [isLeaveModalOpen, setLeaveModalOpen] = useState(false);
@@ -176,8 +176,14 @@ const Dashboard = () => {
 
     return (
       <div className="admin-layout">
+        {/* Mobile sidebar overlay */}
+        <div
+          className={`admin-sidebar-overlay ${sidebarOpen ? 'show' : ''}`}
+          onClick={() => setSidebarOpen(false)}
+        ></div>
+
         {/* Sidebar */}
-        <aside className="admin-sidebar">
+        <aside className={`admin-sidebar ${sidebarOpen ? 'open' : ''}`}>
           <div className="admin-brand">
             <Users size={26} />
             <span>نظام <span className="text-gradient-accent">انضباط</span></span>
@@ -188,7 +194,7 @@ const Dashboard = () => {
             {adminMenu.map(item => (
               <button
                 key={item.id}
-                onClick={() => setAdminTab(item.id)}
+                onClick={() => { setAdminTab(item.id); setSidebarOpen(false); }}
                 className={`admin-nav-item ${adminTab === item.id ? 'active' : ''}`}
               >
                 <span className="ani-icon">{item.icon}</span>
@@ -214,9 +220,18 @@ const Dashboard = () => {
         <main className="admin-main">
           {/* Topbar */}
           <header className="admin-topbar">
-            <div>
-              <h1 className="admin-page-title">{adminTitle}</h1>
-              <p className="admin-breadcrumb">لوحة تحكم المدير / {adminTitle}</p>
+            <div className="admin-topbar-start">
+              <button
+                className="admin-menu-toggle"
+                aria-label="القائمة"
+                onClick={() => setSidebarOpen(!sidebarOpen)}
+              >
+                <Menu size={22} />
+              </button>
+              <div>
+                <h1 className="admin-page-title">{adminTitle}</h1>
+                <p className="admin-breadcrumb">لوحة تحكم المدير / {adminTitle}</p>
+              </div>
             </div>
             <div className="admin-topbar-actions">
               <div className="admin-search">
