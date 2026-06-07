@@ -22,7 +22,14 @@ import {
   Users,
   Calendar,
   CreditCard,
-  FileText
+  FileText,
+  IdCard,
+  Car,
+  Radar,
+  ScanFace,
+  Hotel,
+  Bot,
+  Code2
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import '../App.css';
@@ -42,44 +49,47 @@ function App() {
 
   const features = [
     {
-      icon: <Smartphone size={32} />,
-      title: 'بوابة الخدمة الذاتية',
-      desc: 'تطبيق جوال يتيح للموظفين طلب الإجازات، استعراض كشوف الراتب، وتسجيل الحضور بسهولة.'
+      icon: <IdCard size={32} />,
+      title: 'خدمة مقيم',
+      desc: 'بوابة متكاملة لإدارة المقيمين، تجديد الإقامات، وإصدار التأشيرات دون الحاجة لمراجعة الجوازات.'
     },
     {
-      icon: <Clock size={32} />,
-      title: 'تتبع الحضور والانصراف',
-      desc: 'ربط مباشر مع أجهزة البصمة والتعرف على الوجه، بالإضافة لتسجيل الحضور الجغرافي عبر الجوال.'
+      icon: <Car size={32} />,
+      title: 'خدمة تم',
+      desc: 'إدارة أسطول المركبات والوصول المباشر لقواعد بيانات المرور للنقل وتأجير السيارات.'
     },
     {
-      icon: <Calendar size={32} />,
-      title: 'إدارة الإجازات والورديات',
-      desc: 'جدولة مرنة لورديات العمل، ونظام مؤتمت لطلبات الإجازات والموافقات الإدارية المتسلسلة.'
+      icon: <Radar size={32} />,
+      title: 'راصد (تتبع)',
+      desc: 'أنظمة تتبع حية ودقيقة مع تقارير تشغيلية لتحسين كفاءة الأسطول وتقليل التكاليف.'
     },
     {
-      icon: <CreditCard size={32} />,
-      title: 'إدارة الرواتب والمسيرات',
-      desc: 'حساب آلي للرواتب، الخصومات، البدلات، والعمل الإضافي مع إصدار كشوفات الرواتب بنقرة واحدة.'
+      icon: <ScanFace size={32} />,
+      title: 'البوابة الذكية',
+      desc: 'نظام أمني متطور لإصدار تصاريح الدخول والتحقق من هوية الزوار والمركبات.'
     },
     {
-      icon: <FileText size={32} />,
-      title: 'تقارير وتقييم الأداء',
-      desc: 'لوحات تحكم ذكية وتقارير شاملة لمتابعة أداء الموظفين ونسب الغياب والتأخير لاتخاذ قرارات أفضل.'
+      icon: <Hotel size={32} />,
+      title: 'نزلكم للفنادق',
+      desc: 'أنظمة متخصصة لإدارة الفنادق والوحدات السكنية بكفاءة عالية.'
     },
     {
-      icon: <Layers size={32} />,
-      title: 'الأرشفة الإلكترونية',
-      desc: 'ملف إلكتروني متكامل لكل موظف يحتوي على عقوده، مستنداته الرسمية، وتواريخ انتهاء إقاماته.'
+      icon: <Bot size={32} />,
+      title: 'ميتا كلاود',
+      desc: 'شات بوت واتساب ذكي بلهجة سعودية لخدمة عملائك على مدار الساعة.'
+    },
+    {
+      icon: <Code2 size={32} />,
+      title: 'تطوير الويب',
+      desc: 'تصميم وتطوير مواقع إلكترونية متجاوبة وعصرية تخدم أهدافك التجارية.'
     }
   ];
 
   const clients = [
-    { name: 'الوطنية للتقنية', icon: <Globe2 size={28} /> },
-    { name: 'مجموعة الأفق', icon: <Building2 size={28} /> },
-    { name: 'مستشفيات النور', icon: <Briefcase size={28} /> },
-    { name: 'وزارة التطوير', icon: <Landmark size={28} /> },
-    { name: 'مؤسسة البناء', icon: <Building size={28} /> },
-    { name: 'بنك المستقبل', icon: <Layers size={28} /> }
+    { name: 'شركة علم', icon: <Building2 size={28} /> },
+    { name: 'شموس', icon: <ShieldCheck size={28} /> },
+    { name: 'وزارة السياحة', icon: <Globe2 size={28} /> },
+    { name: 'هيئة الزكاة والضريبة والجمارك', icon: <Landmark size={28} /> }
   ];
 
   // Duplicate clients array multiple times to guarantee no empty space
@@ -287,9 +297,9 @@ function App() {
       <section id="features" className="features">
         <div className="container">
           <div className="section-header fade-in-up">
-            <h2 className="section-title">كل ما تحتاجه لإدارة موظفيك <span className="text-gradient-accent">وأكثر</span></h2>
+            <h2 className="section-title">منظومة خدمات <span className="text-gradient-accent">متكاملة</span></h2>
             <p className="section-desc">
-              نقدم لك مجموعة متكاملة من الأدوات لتنظيم الموارد البشرية بكفاءة عالية، عبر واجهة مستخدم عصرية وسهلة الاستخدام.
+              دمجنا الخبرة الحكومية مع الإبداع البرمجي لنقدم لك حلولاً تقنية مبتكرة عبر واجهات عصرية وسهلة الاستخدام.
             </p>
           </div>
           <div className="features-grid">
@@ -340,7 +350,7 @@ function App() {
         <div className="container">
           <div className="section-header fade-in-up" style={{ marginBottom: '2rem' }}>
             <h2 className="section-title">شركاء <span className="text-gradient-accent">النجاح</span></h2>
-            <p className="section-desc">نفخر بثقة أكثر من 500+ شركة ومؤسسة رائدة تعتمد على نظام انضباط يومياً لإدارة فرق عملها</p>
+            <p className="section-desc">نفخر بثقة كبرى الجهات الحكومية والمؤسسات الرائدة التي تعتمد على حلول أسس البرمجيات</p>
           </div>
         </div>
 
