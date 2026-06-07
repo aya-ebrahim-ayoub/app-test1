@@ -420,14 +420,14 @@ function App() {
                 <div className="contact-icon"><Phone /></div>
                 <div>
                   <h4>المبيعات والاستفسارات</h4>
-                  <p dir="ltr" style={{ fontFamily: 'Inter', textAlign: 'right' }}>92 00 10 449</p>
+                  <p dir="ltr" style={{ fontFamily: 'Inter', textAlign: 'right' }}>050 667 1056</p>
                 </div>
               </div>
               <div className="contact-card">
                 <div className="contact-icon"><Mail /></div>
                 <div>
                   <h4>البريد الإلكتروني</h4>
-                  <p>sales@indibat-hr.com</p>
+                  <p>admin@osusprog.com.sa</p>
                 </div>
               </div>
               <div className="contact-card">
@@ -525,12 +525,12 @@ function App() {
                 <a href="#" className="footer-link">مركز المساعدة</a>
                 <a href="#" className="footer-link">شروط الخدمة</a>
                 <a href="#" className="footer-link">سياسة الخصوصية</a>
-                <a href="#" className="footer-link">support@indibat-hr.com</a>
+                <a href="mailto:admin@osusprog.com.sa" className="footer-link">admin@osusprog.com.sa</a>
               </div>
             </div>
           </div>
           <div className="footer-bottom">
-            <p>جميع الحقوق محفوظة © {new Date().getFullYear()} نظام انضباط لإدارة الموارد البشرية</p>
+            <p>جميع الحقوق محفوظة © {new Date().getFullYear()} نظام انضباط — تطوير شركة أسس البرمجيات</p>
           </div>
         </div>
       </footer>

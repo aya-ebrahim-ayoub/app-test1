@@ -53,7 +53,7 @@ const LoginPage = () => {
                 <input 
                   type="email" 
                   className="modern-input" 
-                  placeholder="name@company.com" 
+                  placeholder="name@osusprog.com.sa"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   dir="ltr"
