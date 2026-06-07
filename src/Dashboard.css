@@ -1750,16 +1750,21 @@
 .admin-menu-toggle:hover { background: #e2e8f0; }
 
 .admin-sidebar-overlay {
-  display: none;
   position: fixed;
   inset: 0;
   background: rgba(15, 23, 42, 0.5);
   backdrop-filter: blur(2px);
   z-index: 90;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
-.admin-sidebar-overlay.show { opacity: 1; }
+.admin-sidebar-overlay.show {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
 .admin-search {
   display: flex;
   align-items: center;
@@ -2144,7 +2149,6 @@
     overflow-y: auto;
   }
   .admin-sidebar.open { transform: translateX(0); }
-  .admin-sidebar-overlay { display: block; }
   .admin-menu-toggle { display: flex; }
 
   .admin-topbar { padding: 0.85rem 1rem; }
