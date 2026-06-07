@@ -220,7 +220,7 @@ function App() {
                 position: 'relative'
               }}>
                 <img
-                  src="/hr_dashboard.png"
+                  src="/admin_dashboard.png"
                   alt="لوحة تحكم نظام انضباط"
                   style={{
                     width: '100%',
