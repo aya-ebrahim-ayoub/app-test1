@@ -1590,10 +1590,17 @@
   display: flex;
   flex-direction: column;
   padding: 1.5rem 1rem;
-  position: sticky;
+  position: fixed;
   top: 0;
+  right: 0; /* RTL: pin to the right edge, full height */
   height: 100vh;
   overflow-y: auto;
+  z-index: 50;
+}
+
+/* Main column leaves room for the fixed sidebar on the right */
+.admin-main {
+  margin-right: 270px;
 }
 .admin-brand {
   display: flex;
@@ -2149,7 +2156,9 @@
     overflow-y: auto;
   }
   .admin-sidebar.open { transform: translateX(0); }
+  .admin-sidebar-overlay { display: block; }
   .admin-menu-toggle { display: flex; }
+  .admin-main { margin-right: 0; } /* drawer mode: no offset */
 
   .admin-topbar { padding: 0.85rem 1rem; }
   .admin-page-title { font-size: 1.15rem; }
