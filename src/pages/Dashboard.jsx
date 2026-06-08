@@ -46,6 +46,8 @@ const Dashboard = () => {
   const [showNotifications, setShowNotifications] = useState(false);
   const [isLeaveModalOpen, setLeaveModalOpen] = useState(false);
   const [isPermissionModalOpen, setPermissionModalOpen] = useState(false);
+  const [isAddEmployeeOpen, setAddEmployeeOpen] = useState(false);
+  const [isAddBranchOpen, setAddBranchOpen] = useState(false);
   const [adminTab, setAdminTab] = useState('overview');
   
   // Get role and email from login state. If not present, default to employee or redirect.
@@ -436,7 +438,7 @@ const Dashboard = () => {
                     <h3><Users size={20} /> قائمة الموظفين ({employees.length})</h3>
                     <div style={{ display: 'flex', gap: '0.6rem' }}>
                       <button className="admin-ghost-btn"><Filter size={16} /> تصفية</button>
-                      <button className="btn btn-primary" style={{ padding: '0.6rem 1.2rem', borderRadius: '10px', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '0.4rem' }}><UserPlus size={16} /> إضافة موظف</button>
+                      <button className="btn btn-primary" onClick={() => setAddEmployeeOpen(true)} style={{ padding: '0.6rem 1.2rem', borderRadius: '10px', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '0.4rem' }}><UserPlus size={16} /> إضافة موظف</button>
                     </div>
                   </div>
                   <div className="table-container" style={{ padding: 0 }}>
@@ -581,7 +583,7 @@ const Dashboard = () => {
                 <div className="admin-panel">
                   <div className="admin-panel-head">
                     <h3><Building2 size={20} /> الفروع</h3>
-                    <button className="btn btn-primary" style={{ padding: '0.6rem 1.2rem', borderRadius: '10px', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '0.4rem' }}><Plus size={16} /> إضافة فرع</button>
+                    <button className="btn btn-primary" onClick={() => setAddBranchOpen(true)} style={{ padding: '0.6rem 1.2rem', borderRadius: '10px', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '0.4rem' }}><Plus size={16} /> إضافة فرع</button>
                   </div>
                   <div className="table-container" style={{ padding: 0 }}>
                     <table className="modern-table" style={{ margin: 0 }}>
@@ -647,6 +649,91 @@ const Dashboard = () => {
 
           </div>
         </main>
+
+        {/* Add Employee Modal */}
+        {isAddEmployeeOpen && (
+          <div className="modal-overlay" onClick={() => setAddEmployeeOpen(false)}>
+            <div className="modal-content professional-modal" onClick={e => e.stopPropagation()}>
+              <div className="modal-header">
+                <h3 style={{ fontSize: '1.5rem', fontWeight: 800, margin: 0, color: '#0f172a' }}>إضافة موظف جديد</h3>
+                <button className="close-btn" onClick={() => setAddEmployeeOpen(false)}><X size={24} /></button>
+              </div>
+              <div className="modal-body" style={{ padding: '1.5rem 2rem' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1.25rem' }}>
+                  <div className="form-group">
+                    <label style={{ display: 'block', marginBottom: '0.4rem', fontWeight: 600, color: '#334155', fontSize: '0.95rem' }}>الاسم الكامل</label>
+                    <input type="text" className="professional-input" placeholder="مثال: أحمد محمد" style={{ width: '100%', padding: '0.75rem', borderRadius: '10px', border: '1px solid #e2e8f0', fontFamily: 'Cairo', fontSize: '0.95rem', color: '#0f172a', backgroundColor: '#f8fafc' }} />
+                  </div>
+                  <div className="form-group">
+                    <label style={{ display: 'block', marginBottom: '0.4rem', fontWeight: 600, color: '#334155', fontSize: '0.95rem' }}>الرقم الوظيفي</label>
+                    <input type="text" className="professional-input" placeholder="EMP-2026-000" style={{ width: '100%', padding: '0.75rem', borderRadius: '10px', border: '1px solid #e2e8f0', fontFamily: 'Cairo', fontSize: '0.95rem', color: '#0f172a', backgroundColor: '#f8fafc' }} />
+                  </div>
+                </div>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1.25rem' }}>
+                  <div className="form-group">
+                    <label style={{ display: 'block', marginBottom: '0.4rem', fontWeight: 600, color: '#334155', fontSize: '0.95rem' }}>القسم</label>
+                    <select className="professional-input" style={{ width: '100%', padding: '0.75rem', borderRadius: '10px', border: '1px solid #e2e8f0', fontFamily: 'Cairo', fontSize: '0.95rem', color: '#0f172a', backgroundColor: '#f8fafc' }}>
+                      <option>تقنية المعلومات</option>
+                      <option>الموارد البشرية</option>
+                      <option>المالية</option>
+                      <option>التسويق والمبيعات</option>
+                    </select>
+                  </div>
+                  <div className="form-group">
+                    <label style={{ display: 'block', marginBottom: '0.4rem', fontWeight: 600, color: '#334155', fontSize: '0.95rem' }}>المسمى الوظيفي</label>
+                    <input type="text" className="professional-input" placeholder="مثال: مهندس برمجيات" style={{ width: '100%', padding: '0.75rem', borderRadius: '10px', border: '1px solid #e2e8f0', fontFamily: 'Cairo', fontSize: '0.95rem', color: '#0f172a', backgroundColor: '#f8fafc' }} />
+                  </div>
+                </div>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1.5rem' }}>
+                  <div className="form-group">
+                    <label style={{ display: 'block', marginBottom: '0.4rem', fontWeight: 600, color: '#334155', fontSize: '0.95rem' }}>البريد الإلكتروني</label>
+                    <input type="email" className="professional-input" placeholder="name@company.com" dir="ltr" style={{ width: '100%', padding: '0.75rem', borderRadius: '10px', border: '1px solid #e2e8f0', fontFamily: 'Cairo', fontSize: '0.95rem', color: '#0f172a', backgroundColor: '#f8fafc' }} />
+                  </div>
+                  <div className="form-group">
+                    <label style={{ display: 'block', marginBottom: '0.4rem', fontWeight: 600, color: '#334155', fontSize: '0.95rem' }}>رقم الجوال</label>
+                    <input type="tel" className="professional-input" placeholder="05xxxxxxxx" dir="ltr" style={{ width: '100%', padding: '0.75rem', borderRadius: '10px', border: '1px solid #e2e8f0', fontFamily: 'Cairo', fontSize: '0.95rem', color: '#0f172a', backgroundColor: '#f8fafc' }} />
+                  </div>
+                </div>
+                <div style={{ display: 'flex', gap: '0.75rem', justifyContent: 'flex-end' }}>
+                  <button className="btn btn-outline" onClick={() => setAddEmployeeOpen(false)} style={{ padding: '0.75rem 1.5rem', borderRadius: '10px', fontWeight: 'bold' }}>إلغاء</button>
+                  <button className="btn btn-primary" onClick={() => { setAddEmployeeOpen(false); alert('تمت إضافة الموظف بنجاح!'); }} style={{ padding: '0.75rem 2rem', borderRadius: '10px', fontWeight: 'bold' }}>حفظ الموظف</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Add Branch Modal */}
+        {isAddBranchOpen && (
+          <div className="modal-overlay" onClick={() => setAddBranchOpen(false)}>
+            <div className="modal-content professional-modal" onClick={e => e.stopPropagation()} style={{ maxWidth: '550px' }}>
+              <div className="modal-header">
+                <h3 style={{ fontSize: '1.5rem', fontWeight: 800, margin: 0, color: '#0f172a' }}>إضافة فرع جديد</h3>
+                <button className="close-btn" onClick={() => setAddBranchOpen(false)}><X size={24} /></button>
+              </div>
+              <div className="modal-body" style={{ padding: '1.5rem 2rem' }}>
+                <div className="form-group" style={{ marginBottom: '1.25rem' }}>
+                  <label style={{ display: 'block', marginBottom: '0.4rem', fontWeight: 600, color: '#334155', fontSize: '0.95rem' }}>اسم الفرع</label>
+                  <input type="text" className="professional-input" placeholder="مثال: فرع الدمام" style={{ width: '100%', padding: '0.75rem', borderRadius: '10px', border: '1px solid #e2e8f0', fontFamily: 'Cairo', fontSize: '0.95rem', color: '#0f172a', backgroundColor: '#f8fafc' }} />
+                </div>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1.5rem' }}>
+                  <div className="form-group">
+                    <label style={{ display: 'block', marginBottom: '0.4rem', fontWeight: 600, color: '#334155', fontSize: '0.95rem' }}>المدينة</label>
+                    <input type="text" className="professional-input" placeholder="مثال: الدمام" style={{ width: '100%', padding: '0.75rem', borderRadius: '10px', border: '1px solid #e2e8f0', fontFamily: 'Cairo', fontSize: '0.95rem', color: '#0f172a', backgroundColor: '#f8fafc' }} />
+                  </div>
+                  <div className="form-group">
+                    <label style={{ display: 'block', marginBottom: '0.4rem', fontWeight: 600, color: '#334155', fontSize: '0.95rem' }}>مدير الفرع</label>
+                    <input type="text" className="professional-input" placeholder="مثال: فهد العنزي" style={{ width: '100%', padding: '0.75rem', borderRadius: '10px', border: '1px solid #e2e8f0', fontFamily: 'Cairo', fontSize: '0.95rem', color: '#0f172a', backgroundColor: '#f8fafc' }} />
+                  </div>
+                </div>
+                <div style={{ display: 'flex', gap: '0.75rem', justifyContent: 'flex-end' }}>
+                  <button className="btn btn-outline" onClick={() => setAddBranchOpen(false)} style={{ padding: '0.75rem 1.5rem', borderRadius: '10px', fontWeight: 'bold' }}>إلغاء</button>
+                  <button className="btn btn-primary" onClick={() => { setAddBranchOpen(false); alert('تمت إضافة الفرع بنجاح!'); }} style={{ padding: '0.75rem 2rem', borderRadius: '10px', fontWeight: 'bold' }}>حفظ الفرع</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     );
   }
