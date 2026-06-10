@@ -480,6 +480,19 @@
   gap: 1rem;
 }
 
+/* Compact check-in hero card on mobile (web view only) */
+@media (max-width: 768px) {
+  .checkin-hero-card { padding: 1.5rem 1.25rem; border-radius: 22px; }
+  .checkin-hero-centered { gap: 0.75rem; }
+  .massive-time { font-size: 3rem; }
+  .massive-time .am-pm { font-size: 1.1rem; margin-right: 0.35rem; }
+  .shift-detail-pill { padding: 0.5rem 1rem; font-size: 0.85rem; }
+  .hero-shift-inline { gap: 0.6rem; }
+  .punch-action-center .btn-massive-punch { min-width: 0; width: 100%; padding: 0.85rem 1rem; }
+  .punch-icon-circle { width: 44px; height: 44px; }
+  .checkin-bg-icon { transform: rotate(-15deg) scale(0.6); left: -70px; bottom: -80px; }
+}
+
 .hero-top-bar {
   display: flex;
   justify-content: space-between;
