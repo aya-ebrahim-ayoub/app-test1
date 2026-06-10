@@ -1871,6 +1871,12 @@
 .admin-stat-card.purple::before { background: linear-gradient(180deg,#c084fc,#9333ea); }
 .admin-stat-card.red::before { background: linear-gradient(180deg,#f87171,#dc2626); }
 
+/* Icon beside the value/label (attendance & departments cards) */
+.admin-stat-card.asc-inline { display: flex; align-items: center; gap: 1rem; }
+.admin-stat-card.asc-inline .asc-icon { width: 52px; height: 52px; }
+.asc-inline .asc-text { display: flex; flex-direction: column; gap: 0.35rem; }
+.asc-inline .asc-label { margin: 0; }
+
 /* title beside icon */
 .asc-head { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.1rem; }
 .asc-icon {

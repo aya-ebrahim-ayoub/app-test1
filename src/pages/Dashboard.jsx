@@ -485,10 +485,12 @@ const Dashboard = () => {
                     { label: 'غائب', value: '10', icon: <X size={24} />, color: 'red' },
                     { label: 'انصراف مبكر', value: '4', icon: <LogOut size={24} />, color: 'purple' },
                   ].map((s, i) => (
-                    <div key={i} className={`admin-stat-card ${s.color}`}>
-                      <div className="asc-top"><div className="asc-icon">{s.icon}</div></div>
-                      <div className="asc-value">{s.value}</div>
-                      <div className="asc-label">{s.label} اليوم</div>
+                    <div key={i} className={`admin-stat-card asc-inline ${s.color}`}>
+                      <div className="asc-icon">{s.icon}</div>
+                      <div className="asc-text">
+                        <div className="asc-value">{s.value}</div>
+                        <div className="asc-label">{s.label} اليوم</div>
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -573,10 +575,12 @@ const Dashboard = () => {
                     { label: 'المالية', value: '21', color: 'orange' },
                     { label: 'التسويق والمبيعات', value: '38', color: 'purple' },
                   ].map((s, i) => (
-                    <div key={i} className={`admin-stat-card ${s.color}`}>
-                      <div className="asc-top"><div className="asc-icon"><Building2 size={24} /></div></div>
-                      <div className="asc-value">{s.value}</div>
-                      <div className="asc-label">{s.label}</div>
+                    <div key={i} className={`admin-stat-card asc-inline ${s.color}`}>
+                      <div className="asc-icon"><Building2 size={24} /></div>
+                      <div className="asc-text">
+                        <div className="asc-value">{s.value}</div>
+                        <div className="asc-label">{s.label}</div>
+                      </div>
                     </div>
                   ))}
                 </div>
